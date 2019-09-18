@@ -37,6 +37,7 @@ class App extends Component{
       people:[],
       search: '',
       species:[],
+      page:1,
       // species: [],
       // fullInfo:[],
 
@@ -247,12 +248,12 @@ class App extends Component{
 
 
     //const {fullInfo}= this.state
-    const {people, search,species} = this.state
-    console.log(this.state)
+    const {people, search,species,page} = this.state
+    //console.log(pageNumber)
     //CREATES AN ARRAY OF PEOPLE THAT INCLUDE THE FILTERED TEXT
     const filtered = people.filter( person =>{
       return person.name.toLowerCase().includes(search.toLowerCase())
-    })
+    }).slice(0,page*10)
 
     console.log(filtered)
     console.log({people})
