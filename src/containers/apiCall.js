@@ -7,7 +7,7 @@ export const apiCall = async (link) =>{
   return getObject
 }
 
-export const createPersonObject =   (person,speciesList) =>{
+export const createPersonObject =   (person,speciesList,pageNum) =>{
   //console.log(person.species)
   // let spec = 'none'
   // if(person.species.length != 0){
@@ -16,8 +16,8 @@ export const createPersonObject =   (person,speciesList) =>{
   // }
 
   let specLink = person.species[0] //get link present in person object
-  console.log(specLink)
-  console.log(speciesList)
+  //console.log(specLink)
+  //console.log(speciesList)
   let speciesName = 'unknown'
 
 
@@ -41,7 +41,8 @@ export const createPersonObject =   (person,speciesList) =>{
       species: speciesName,
       gender: person.gender,
       height: person.height,
-      weight: weight_in_lbs
+      weight: weight_in_lbs,
+      page: pageNum
     }
   //  console.log(modifiedPerson)
     return modifiedPerson
@@ -76,8 +77,8 @@ export const createObjArrays = async (type,link,speciesList) =>{
       //  console.log(temp)
       }
       if(type === 'people'){
-        console.log('MAKING PPL')
-        temp = await createPersonObject(getResults[i],speciesList)
+        //console.log('MAKING PPL')
+        temp = await createPersonObject(getResults[i],speciesList,pageNum)
       }
 
       //console.log(temp)

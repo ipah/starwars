@@ -9,13 +9,13 @@ const Card = (prop)=>{
 
   // console.log(test);
   return(
-  
+
 
 //pa2 center bg-white pa4-ns mv3 ba b--black-10
     //<div class='fl w-100 w-25-ns pa2'>
       <article class=" ba b--black-10 pa4 bg-white ">
         <div class="tc">
-          <img src="http://tachyons.io/img/avatar_1.jpg" class="br-100 h3 w3 dib" title="Photo of a kitty staring at you"/>
+          <img src="./img/starwars-logo.jpg" class="br-100 h3 w3 dib" title="Photo of a kitty staring at you"/>
           <h1 class="f3 ">{prop.name}</h1>
           <hr class="mw3 bb bw1 b--black-10"/>
         </div>

@@ -5,6 +5,7 @@ import SearchBox from '../components/SearchBox';
 import ErrorBoundary from '../components/ErrorBoundary'
 import {requestPeople} from "../actions";
 import React, {Component} from "react";
+import Pagination from "../components/Pagination";
 import {getPeopleData, createSpeciesObject,apiCall,createPersonObject, createStateArrays} from './apiCall'
 
 // function App() {
@@ -38,6 +39,7 @@ class App extends Component{
       search: '',
       species:[],
       page:1,
+      maxPage:'',
       // species: [],
       // fullInfo:[],
 
@@ -168,6 +170,9 @@ class App extends Component{
       return a.name > b.name ? 1:-1
     })
 
+    let maxPageNum = Math.ceil(peopleArraySorted.length/10)
+    this.setState({maxPage: maxPageNum})
+
     //console.log(test)
     this.setState({people:peopleArraySorted})
     //console.log(this.state)
@@ -179,6 +184,15 @@ class App extends Component{
       this.setState({search: event.target.value})
   }
 
+  //FUNCTION TO GRAB NEXT PAGE
+  nextPage = (event) =>{
+    let pageNum=this.state.page
+    let newPageNum = pageNum++;
+    if(newPageNum <= this.state.maxPageNum){
+      this.setState({page: newPageNum })
+    }
+
+  }
 
 
 //---------------------------------APPROACH #1-------------------------//
@@ -292,6 +306,7 @@ class App extends Component{
             <CardList people = {filtered} />
           </ErrorBoundary>
         </div>
+        <Pagination />
       </div>
         // <Card
         //   name = {people.name}
