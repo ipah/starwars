@@ -183,7 +183,7 @@ class App extends Component{
 //THIS FUNCTION IS TO HANDLE ON CHANGE
   searchHandle = (event) =>{
       //console.log(event.target.value)
-      this.setState({search: event.target.value})
+      this.setState({search: event.target.value,page:0})
   }
 
   //FUNCTION TO GRAB NEXT PAGE
