@@ -172,6 +172,8 @@ class App extends Component{
 
     let maxPageNum = Math.ceil(peopleArraySorted.length/10)
     this.setState({maxPage: maxPageNum})
+    console.log(maxPageNum)
+    console.log(this.state.maxPage)
 
     //console.log(test)
     this.setState({people:peopleArraySorted})
@@ -187,11 +189,13 @@ class App extends Component{
   //FUNCTION TO GRAB NEXT PAGE
   nextPage = (event) =>{
     let pageNum=this.state.page
-    let newPageNum = pageNum++;
-    if(newPageNum <= this.state.maxPageNum){
+    let newPageNum = pageNum+1;
+    console.log(newPageNum)
+    if(newPageNum <= this.state.maxPage){
+      console.log('set ')
       this.setState({page: newPageNum })
     }
-
+    console.log('next click', this.state.page)
   }
 
 
@@ -263,13 +267,23 @@ class App extends Component{
 
     //const {fullInfo}= this.state
     const {people, search,species,page} = this.state
+    console.log(page)
     //console.log(pageNumber)
     //CREATES AN ARRAY OF PEOPLE THAT INCLUDE THE FILTERED TEXT
     const filtered = people.filter( person =>{
       return person.name.toLowerCase().includes(search.toLowerCase())
-    }).slice(0,page*10)
+    })//.slice(0,page*10)
 
-    console.log(filtered)
+  //console.log(filtered)
+
+    const filtered_paginated = filtered.filter(person =>{
+      if(person.page == page){
+        return person
+      }
+      //return person.page.includes(page)
+    })
+
+    console.log(filtered_paginated)
     console.log({people})
     console.log({species})
 
@@ -303,10 +317,10 @@ class App extends Component{
             <SearchBox onChange = {this.searchHandle} />
           </div>
           <ErrorBoundary>
-            <CardList people = {filtered} />
+            <CardList people = {filtered_paginated} page={page} />
           </ErrorBoundary>
         </div>
-        <Pagination />
+        <Pagination onClick = {this.nextPage}/>
       </div>
         // <Card
         //   name = {people.name}
