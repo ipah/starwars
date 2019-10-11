@@ -198,6 +198,18 @@ class App extends Component{
     console.log('next click', this.state.page)
   }
 
+  //FUNCTION TO GET PREV PAGE
+  prevPage = (event) =>{
+    let pageNum=this.state.page
+    let newPageNum = pageNum-1;
+    console.log(newPageNum)
+    if(newPageNum >= 0){
+      console.log('set ')
+      this.setState({page: newPageNum })
+    }
+    console.log('next click', this.state.page)
+  }
+
 
 //---------------------------------APPROACH #1-------------------------//
   // componentDidMount(){
@@ -274,6 +286,8 @@ class App extends Component{
       return person.name.toLowerCase().includes(search.toLowerCase())
     })//.slice(0,page*10)
 
+    const maxPg = Math.ceil(filtered.length/16)
+
   //console.log(filtered)
 
     const filtered_paginated = filtered.slice(page*16,(page+1)*16)
@@ -315,7 +329,7 @@ class App extends Component{
             <CardList people = {filtered_paginated} page={page} />
           </ErrorBoundary>
         </div>
-        <Pagination onClick = {this.nextPage} currentPage = {page} maxPage={maxPage}/>
+        <Pagination onClickPrev= {this.prevPage} onClickNext = {this.nextPage} currentPage = {page} maxPage={maxPg}/>
       </div>
         // <Card
         //   name = {people.name}
