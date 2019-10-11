@@ -38,7 +38,7 @@ class App extends Component{
       people:[],
       search: '',
       species:[],
-      page:1,
+      page:0,
       maxPage:'',
       // species: [],
       // fullInfo:[],
@@ -170,7 +170,7 @@ class App extends Component{
       return a.name > b.name ? 1:-1
     })
 
-    let maxPageNum = Math.ceil(peopleArraySorted.length/10)
+    let maxPageNum = Math.ceil(peopleArraySorted.length/16)
     this.setState({maxPage: maxPageNum})
     console.log(maxPageNum)
     console.log(this.state.maxPage)
@@ -266,7 +266,7 @@ class App extends Component{
 
 
     //const {fullInfo}= this.state
-    const {people, search,species,page} = this.state
+    const {people, search,species,page,maxPage} = this.state
     console.log(page)
     //console.log(pageNumber)
     //CREATES AN ARRAY OF PEOPLE THAT INCLUDE THE FILTERED TEXT
@@ -276,13 +276,8 @@ class App extends Component{
 
   //console.log(filtered)
 
-    const filtered_paginated = filtered.filter(person =>{
-      if(person.page == page){
-        return person
-      }
-      //return person.page.includes(page)
-    })
-
+    const filtered_paginated = filtered.slice(page*16,(page+1)*16)
+    //console.log(page*10,(page+1)*10)
     console.log(filtered_paginated)
     console.log({people})
     console.log({species})
@@ -320,7 +315,7 @@ class App extends Component{
             <CardList people = {filtered_paginated} page={page} />
           </ErrorBoundary>
         </div>
-        <Pagination onClick = {this.nextPage}/>
+        <Pagination onClick = {this.nextPage} currentPage = {page} maxPage={maxPage}/>
       </div>
         // <Card
         //   name = {people.name}
