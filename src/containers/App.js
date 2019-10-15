@@ -40,6 +40,7 @@ class App extends Component{
       species:[],
       page:0,
       maxPage:'',
+      maxResPage:'',
       // species: [],
       // fullInfo:[],
 
@@ -183,6 +184,7 @@ class App extends Component{
 //THIS FUNCTION IS TO HANDLE ON CHANGE
   searchHandle = (event) =>{
       //console.log(event.target.value)
+
       this.setState({search: event.target.value,page:0})
   }
 
@@ -297,7 +299,7 @@ class App extends Component{
       return person.name.toLowerCase().includes(search.toLowerCase())
     })//.slice(0,page*10)
 
-    const maxPg = Math.ceil(filtered.length/16)
+    const maxResPg = Math.ceil(filtered.length/16)
 
   //console.log(filtered)
 
@@ -340,7 +342,7 @@ class App extends Component{
             <CardList people = {filtered_paginated} page={page} />
           </ErrorBoundary>
         </div>
-        <Pagination onClickPage = {this.goToPage} onClickPrev= {this.prevPage} onClickNext = {this.nextPage} currentPage = {page} maxPage={maxPg}/>
+        <Pagination onClickPage = {this.goToPage} onClickPrev= {this.prevPage} onClickNext = {this.nextPage} currentPage = {page} maxResPage={maxResPg} maxPage={maxPage}/>
       </div>
         // <Card
         //   name = {people.name}

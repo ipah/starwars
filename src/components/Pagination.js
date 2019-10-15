@@ -1,63 +1,65 @@
 import React from 'react'
+import PageNumberButton from './PageNumberButton.js'
 
-const Pagination = (prop) =>{
+const Pagination = (props) =>{
+  console.log(props)
   //console.log(prop.onClick)
   //console.log(prop.currentPage, prop.maxPage)
+  let arr = []
+  let prop = props;
+  for(var i = 0; i < prop.maxPage  ; i++){
+    arr.push('')
+  }
+  //console.log(prop.onClickPage)
+  const pageNumButtons = arr.map((page, i) =>{
+    return(
+      <PageNumberButton
+        buttonId = {i}
+        currentPage = {prop.currentPage}
+        maxPage = {prop.maxPage}
+        maxResPage = {prop.maxResPage}
+        onClick = {prop.onClickPage}
 
-  console.log(prop.onClickPage)
-  return(
-    <div class='bt b--light-silver flex justify-center items-center f3 ma3'>
-      <nav class='ba b--light-silver br3 ma3 overflow-hidden'>
-        {prop.currentPage !== 0 ?
-          (<a class='link dim br b--light-silver pa3 fl' onClick = {prop.onClickPrev} href= '#'> Previous </a>)
-          :(<a class='link dim br b--light-silver pa3 fl disabled silver' onClick= {prop.onClickPrev} href= '#'> Previous </a>)
-        }
-
-        {prop.currentPage !== prop.maxPage-1 ?
-          (<a class='link dim b--light-silver pa3 fr ' onClick = {prop.onClickNext} href= '#'> Next </a>)
-          :(<a class='link dim b--light-silver pa3 fr disabled silver' onClick = {prop.onClickNext} href= '#'> Next </a>)
-        }
-
-        <div  class='dt tc'>
-        {prop.currentPage+1 === 1 ?
-          (<a data-page = "0" class='dtc br b--light-silver pa3 bg-blue' onClick = {prop.onClickPage} href= '#'> 1</a>)
-          : (<a data-page = "0" class='dtc br b--light-silver pa3 ' onClick = {prop.onClickPage} href= '#'> 1</a>)
-        }
-        {prop.currentPage+1 === 2 ?
-          (<a data-page = "1" class='dtc br b--light-silver pa3 bg-blue' onClick = {prop.onClickPage} href= '#'> 2</a>)
-          : (<a data-page = "1" class='dtc br b--light-silver pa3 ' onClick = {prop.onClickPage} href= '#'> 2</a>)
-        }
-        {prop.currentPage+1 === 3 ?
-          (<a data-page = "2" class='dtc br b--light-silver pa3 bg-blue' onClick = {prop.onClickPage} href= '#'> 3</a>)
-          : (<a data-page = "2" class='dtc br b--light-silver pa3 ' onClick = {prop.onClickPage} href= '#'> 3</a>)
-        }
-        {prop.currentPage+1 === 4 ?
-          (<a data-page = "3" class='dtc br b--light-silver pa3 bg-blue' onClick = {prop.onClickPage} href= '#'> 4</a>)
-          : (<a data-page = "3" class='dtc br b--light-silver pa3 ' onClick = {prop.onClickPage} href= '#'> 4</a>)
-        }
-        {prop.currentPage+1 === 5 ?
-          (<a data-page = "4" class='dtc br b--light-silver pa3 bg-blue' onClick = {prop.onClickPage} href= '#'> 5</a>)
-          : (<a data-page = "4" class='dtc br b--light-silver pa3 ' onClick = {prop.onClickPage} href= '#'> 5</a>)
-        }
-        {prop.currentPage+1 === 6?
-          (<a data-page = "5" class='dtc br b--light-silver pa3 bg-blue' onClick = {prop.onClickPage} href= '#'> 6</a>)
-          : (<a data-page = "5" class='dtc br b--light-silver pa3 ' onClick = {prop.onClickPage} href= '#'> 6</a>)
-        }
+      />
+    )
+  })
 
 
-        </div>
+    return(
+      <div class='bt b--light-silver flex justify-center items-center f3 ma3'>
+        <nav class='ba b--light-silver br3 ma3 overflow-hidden'>
+          {prop.currentPage !== 0 ?
+            (<a class='link dim br b--light-silver pa3 fl' onClick = {prop.onClickPrev} href= '#'> Previous </a>)
+            :(<a class='link dim br b--light-silver pa3 fl disabled silver' onClick= {prop.onClickPrev} href= '#'> Previous </a>)
+          }
+
+          {prop.currentPage !== prop.maxPage-1 ?
+            (<a class='link dim b--light-silver pa3 fr ' onClick = {prop.onClickNext} href= '#'> Next </a>)
+            :(<a class='link dim b--light-silver pa3 fr disabled silver' onClick = {prop.onClickNext} href= '#'> Next </a>)
+          }
+
+
+          <div class='overflow-hidden center dt tc'>
+            {pageNumButtons}
+          </div>
 
 
 
 
 
-      </nav>
-    </div>
+
+
+        </nav>
+      </div>
+
+    )
 
 
 
 
-  )
+
+
+
 }
 
 
