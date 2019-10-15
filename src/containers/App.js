@@ -210,6 +210,17 @@ class App extends Component{
     console.log('next click', this.state.page)
   }
 
+  //FUNCTION TO GO TO SPECIFIC PAGE
+  goToPage = (event) =>{
+    let t = "42"
+    // console.log(t.parseInt())
+    // console.log(event.target.dataset)
+    // console.log(event.target.dataset.page)
+    let goTo = parseInt(event.target.dataset.page);
+    console.log(event.target.dataset.page)
+    this.setState({page: goTo })
+  }
+
 
 //---------------------------------APPROACH #1-------------------------//
   // componentDidMount(){
@@ -329,7 +340,7 @@ class App extends Component{
             <CardList people = {filtered_paginated} page={page} />
           </ErrorBoundary>
         </div>
-        <Pagination onClickPrev= {this.prevPage} onClickNext = {this.nextPage} currentPage = {page} maxPage={maxPg}/>
+        <Pagination onClickPage = {this.goToPage} onClickPrev= {this.prevPage} onClickNext = {this.nextPage} currentPage = {page} maxPage={maxPg}/>
       </div>
         // <Card
         //   name = {people.name}
