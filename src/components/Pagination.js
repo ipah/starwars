@@ -33,7 +33,7 @@ const Pagination = (props) =>{
             :(<a class='link dim br b--light-silver pa3 fl disabled silver' onClick= {prop.onClickPrev} href= '#'> Previous </a>)
           }
 
-          {prop.currentPage !== prop.maxPage-1 ?
+          {prop.currentPage !== prop.maxResPage-1 ?
             (<a class='link dim b--light-silver pa3 fr ' onClick = {prop.onClickNext} href= '#'> Next </a>)
             :(<a class='link dim b--light-silver pa3 fr disabled silver' onClick = {prop.onClickNext} href= '#'> Next </a>)
           }
