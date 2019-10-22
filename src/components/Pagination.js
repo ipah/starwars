@@ -29,13 +29,13 @@ const Pagination = (props) =>{
       <div class='bt b--light-silver flex justify-center items-center f3 ma3'>
         <nav class='ba b--light-silver br3 ma3 overflow-hidden'>
           {prop.currentPage !== 0 ?
-            (<a class='link dim br b--light-silver pa3 fl' onClick = {prop.onClickPrev} href= '#'> Previous </a>)
-            :(<a class='link dim br b--light-silver pa3 fl disabled silver' onClick= {prop.onClickPrev} href= '#'> Previous </a>)
+            (<a class='link dim br b--light-silver pa3-l pa2-m pa1 fl' onClick = {prop.onClickPrev} href= '#'> Previous </a>)
+            :(<a class='link dim br b--light-silver pa3-l pa2-m pa1 fl disabled silver' onClick= {prop.onClickPrev} href= '#'> Previous </a>)
           }
 
           {prop.currentPage !== prop.maxResPage-1 ?
-            (<a class='link dim b--light-silver pa3 fr ' onClick = {prop.onClickNext} href= '#'> Next </a>)
-            :(<a class='link dim b--light-silver pa3 fr disabled silver' onClick = {prop.onClickNext} href= '#'> Next </a>)
+            (<a class='link dim b--light-silver pa3-l pa2-m pa1 fr ' onClick = {prop.onClickNext} href= '#'> Next </a>)
+            :(<a class='link dim b--light-silver pa3-l pa2-m pa1 fr disabled silver' onClick = {prop.onClickNext} href= '#'> Next </a>)
           }
 
 

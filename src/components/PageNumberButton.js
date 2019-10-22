@@ -10,11 +10,11 @@ const PageNumberButton = (props) =>{
     data-page = {pageProps.props.buttonId.toString()}
     onClick = {pageProps.props.onClick}
     class = {pageProps.props.maxResPage-1< pageProps.props.buttonId ?
-            'dtc pa3 br b--light-silver silver disabled'
+            'dtc pa3 pa3-l pa2-m pa1 br b--light-silver silver disabled'
             : pageProps.props.currentPage === pageProps.props.buttonId ?
-            'dtc br b--light-silver pa3 bg-blue white'
+            'dtc br b--light-silver pa3-l pa2-m pa1 bg-blue white'
             :
-            'dtc pa3 br b--light-silver'  }
+            'dtc pa3-l pa2-m pa1 br b--light-silver'  }
     >
       {pageProps.props.buttonId +1 }
     </a>
