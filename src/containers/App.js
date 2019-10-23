@@ -315,7 +315,7 @@ class App extends Component{
     if(people.length >0){
       return(
         <div class=''>
-          <nav class="flex justify-between bb b--black-10 bg-blue">
+          <nav class="flex justify-between bb b--black-10 bg-black">
           <a class="link white-70 hover-white no-underline flex items-center pa3" href="">
             <svg
               class="dib h1 w1"
@@ -329,9 +329,9 @@ class App extends Component{
             </svg>
           </a>
           <div class="flex-grow pa3 flex items-center">
-            <a class="f6 link dib white dim mr3 mr4-ns" href="#0">People</a>
-            <a class="f6 link dib white dim mr3 mr4-ns" href="#0">Species</a>
-            <a class="f6 link dib white dim mr3 mr4-ns" href="#0">Planets</a>
+            <a class="f6 link dib gold dim mr3 mr4-ns" href="#0">People</a>
+            <a class="f6 link dib gold dim mr3 mr4-ns" href="#0">Species</a>
+            <a class="f6 link dib gold dim mr3 mr4-ns" href="#0">Planets</a>
           </div>
         </nav>
         <div class='w-100 sw-bg '>
@@ -356,7 +356,7 @@ class App extends Component{
 
     return(
       <div class='h-100'>
-        <nav class="flex justify-between bb b--black-10 bg-blue">
+        <nav class="flex justify-between bb b--black-10 bg-black">
           <a class="link white-70 hover-white no-underline flex items-center pa3" href="">
             <svg
               class="dib h1 w1"
@@ -370,9 +370,9 @@ class App extends Component{
             </svg>
           </a>
           <div class="flex-grow pa3 flex items-center">
-            <a class="f6 link dib white dim mr3 mr4-ns" href="#0">People</a>
-            <a class="f6 link dib white dim mr3 mr4-ns" href="#0">Species</a>
-            <a class="f6 link dib white dim mr3 mr4-ns" href="#0">Planets</a>
+            <a class="f6 link dib gold dim mr3 mr4-ns" href="#0">People</a>
+            <a class="f6 link dib gold dim mr3 mr4-ns" href="#0">Species</a>
+            <a class="f6 link dib gold dim mr3 mr4-ns" href="#0">Planets</a>
 
           </div>
         </nav>
